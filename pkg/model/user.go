@@ -2,6 +2,7 @@ package model
 
 import (
 	"errors"
+	"sync/atomic"
 )
 
 var id_counter int
@@ -13,8 +14,12 @@ type User struct {
 }
 
 func NewUser(name string, bal int) *User {
-	id_counter++
-	return &User{balance: bal, id: id_counter, name: name}
+	atomic.AddUint32(&id_counter, 1)
+	return &User{
+		balance: bal, 
+		id: int(atomic.LoadUint32(&id_counter)), 
+		name: name,
+	}
 }
 
 
