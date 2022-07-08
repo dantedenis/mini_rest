@@ -12,6 +12,7 @@ import (
 func TestCache(t *testing.T) {
 	c := NewCache()
 	wg := sync.WaitGroup{}
+	rand.Seed(time.Now().UnixNano())
 	
 	for i:=0; i < 10; i++ {
 		wg.Add(1)
