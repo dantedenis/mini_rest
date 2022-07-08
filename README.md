@@ -16,7 +16,9 @@
 }
 ```
 ** трансфер:
-	
+
+Так же можно добавить конфиг и получать параметры сервера с файла
+
 `curl -X POST -H "Content-Type: application/json" -d '{"sender":1, "recipient":2, "amount":50}' http://localhost:8080/transfer` 
 
 ```json
