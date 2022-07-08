@@ -1,6 +1,7 @@
 package cache
 
 import (
+	"errors"
 	"sync"
 	"wb_test/pkg/model"
 )
@@ -24,6 +25,9 @@ func (c *Cache) Add(user *model.User) {
 }
 
 func (c *Cache) Update(send *model.User, rec *model.User, amount int) error {	
+	if send == nil || rec = nil {
+		return errors.New("nil ptr")
+	}
 	c.Lock()
 	defer c.Unlock()
 	
