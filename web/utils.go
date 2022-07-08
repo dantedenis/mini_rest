@@ -32,7 +32,8 @@ func (s *Server) jsonTrans(r *http.Request) error {
 		return errors.New("Sender ID: " + strconv.Itoa(trans.Sender) + " not found")
 	}
 	
-	err = send.TransferTo(rec, trans.Amount)
+	///err = send.TransferTo(rec, trans.Amount)
+	err = s.cache.Update(send, rec, trans.Amount)
 	if err != nil {
 		return err
 	}
