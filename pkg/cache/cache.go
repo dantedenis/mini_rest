@@ -24,18 +24,12 @@ func (c *Cache) Add(user *model.User) {
 	c.data[user.GetID()] = user
 }
 
-func (c *Cache) Update(id, amount int) error {
-	c.RLock()
-	v, ok := c.data[id]
-	if !ok {
-		return errors.New("ID doesn't exist")
-	}
-	c.RUnlock()
-	
+func (c *Cache) Update(send *model.User, rec *model.User, amount int) error {	
 	c.Lock()
 	defer c.Unlock()
-	v.AddAmount(amount)
-	return nil
+	
+	err := send.TransferTo(rec, amount)
+	return err
 }
 
 func (c *Cache) GetUser(id int) *model.User {
