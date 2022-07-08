@@ -1,11 +1,11 @@
 
 # Пример запросов
 
-## баланс:
+* Баланс
 
 `curl -X GET http://localhost:8080/get_balance?id=`
 
-## создание
+* Создание
 
 `curl -X POST -H "Content-Type: application/json" -d '{"balance":1050, "name":"test123"}' http://localhost:8080/create _user`
 
@@ -15,7 +15,7 @@
 	"balance" : amount
 }
 ```
-** трансфер:
+* Трансфер
 
 Так же можно добавить конфиг и получать параметры сервера с файла
 
@@ -31,15 +31,9 @@
 
 
 
-# Ответы
+# Ответы:
  
-## ошибка:
- ```json
- {
-	"error" : "message"
- }
-```
-## успешный гет запрос по ид:
+* Успешный запрос
 ```json
 {
 	"id" : id,
@@ -47,7 +41,15 @@
 	"balance" : balance
 }
 ```
-## ответ:
+
+* Ошибка
+ ```json
+ {
+	"error" : "message"
+ }
+```
+
+* Ответ-сообщение
 ```json
 {
 	"request" : "message"
