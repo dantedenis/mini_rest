@@ -3,7 +3,6 @@ package cache
 import (
 	"sync"
 	"wb_test/pkg/model"
-	"errors"
 )
 
 type Cache struct {
