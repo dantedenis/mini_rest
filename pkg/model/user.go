@@ -38,7 +38,7 @@ func (u *User) TransferTo(to *User, amount int) error {
 	if u.balance - amount < 0 {
 		return errors.New(u.name + ": not enough currency")
 	}
-	u.balance -= amount
-	to.balance += amount
+	u.AddAmount(-amount)
+	to.AddAmount(+amount)
 	return nil
 }
