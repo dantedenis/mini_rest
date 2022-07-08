@@ -64,5 +64,5 @@ func (s *Server) transfer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	
-	writeDebug(w, "SUCSESS TRANSFER")	
+	writeDebug(w, "SUCCESS TRANSFER")	
 }
